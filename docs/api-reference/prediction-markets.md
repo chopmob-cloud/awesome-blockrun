@@ -2,7 +2,7 @@
 
 Access real-time prediction market data via x402 micropayments. Powered by [Predexon](https://predexon.com).
 
-Unified access to Polymarket, Kalshi, dFlow, Binance, Limitless, Opinion, and Predict.Fun through a single API.
+Unified access to Polymarket, Kalshi, dFlow, Binance, Limitless, Opinion, Predict.Fun, plus UMA Oracle resolution data and on-chain wallet identity & clustering — all through a single API.
 
 ## Networks
 
@@ -30,7 +30,8 @@ Unified access to Polymarket, Kalshi, dFlow, Binance, Limitless, Opinion, and Pr
 | `/api/v1/pm/polymarket/events` | GET | List events with filtering and sorting |
 | `/api/v1/pm/polymarket/crypto-updown` | GET | List crypto up/down prediction markets |
 | `/api/v1/pm/polymarket/market-price/{token_id}` | GET | Get current or historical price for a token |
-| `/api/v1/pm/polymarket/candlesticks/{condition_id}` | GET | Get historical OHLCV candlestick data |
+| `/api/v1/pm/polymarket/candlesticks/{condition_id}` | GET | Get historical OHLCV candlestick data for a market |
+| `/api/v1/pm/polymarket/candlesticks/token/{token_id}` | GET | Get historical OHLCV candlestick data for a single outcome token |
 | `/api/v1/pm/polymarket/volume-chart/{condition_id}` | GET | Get volume chart with YES/NO breakdown |
 | `/api/v1/pm/polymarket/orderbooks` | GET | Get historical orderbook snapshots |
 | `/api/v1/pm/polymarket/trades` | GET | Query historical trade data |
@@ -68,6 +69,23 @@ Unified access to Polymarket, Kalshi, dFlow, Binance, Limitless, Opinion, and Pr
 | `/api/v1/pm/polymarket/market/{condition_id}/smart-money` | GET | Smart money positioning on a market |
 | `/api/v1/pm/polymarket/markets/smart-activity` | GET | Markets where top wallets are active |
 
+### UMA Oracle — Polymarket Resolution (Tier 1: $0.001)
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/v1/pm/polymarket/uma/markets` | GET | List UMA oracle questions filtered by state (proposed, disputed, resolved, …) |
+| `/api/v1/pm/polymarket/uma/market/{condition_id}` | GET | Current UMA oracle status and event timeline for a single market |
+
+### Wallet Identity & Clustering (Tier 2: $0.005)
+
+Cross-context wallet labels and on-chain relationship graph data.
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/v1/pm/polymarket/wallet/identity` | GET | Identity and profile metadata for a single wallet address |
+| `/api/v1/pm/polymarket/wallet/identities-batch` | GET | Bulk lookup of wallet identity profiles |
+| `/api/v1/pm/polymarket/wallet/cluster` | GET | Wallets connected to a seed address via on-chain transfers and proofs |
+
 ### Kalshi (Tier 1: $0.001)
 
 | Endpoint | Method | Description |
@@ -91,19 +109,23 @@ Unified access to Polymarket, Kalshi, dFlow, Binance, Limitless, Opinion, and Pr
 | `/api/v1/pm/binance/candles/{symbol}` | GET | OHLCV candlestick data (BTCUSDT, ETHUSDT, SOLUSDT, XRPUSDT) |
 | `/api/v1/pm/binance/ticks/{symbol}` | GET | Raw book ticker data at microsecond granularity |
 
-### Cross-Platform Matching (Tier 2: $0.005)
+### Cross-Platform Matching & Search (Tier 2: $0.005)
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
 | `/api/v1/pm/matching-markets` | GET | Find equivalent markets across Polymarket and Kalshi |
 | `/api/v1/pm/matching-markets/pairs` | GET | Get all active exact-matched market pairs |
+| `/api/v1/pm/markets/search` | GET | Search markets across Polymarket, Kalshi, Limitless, Opinion, and Predict.Fun in a single call |
 
 ### Other Platforms (Tier 1: $0.001)
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
+| `/api/v1/pm/limitless/markets` | GET | List Limitless markets with filtering and sorting |
 | `/api/v1/pm/limitless/orderbooks` | GET | Historical orderbook snapshots for Limitless |
+| `/api/v1/pm/opinion/markets` | GET | List Opinion markets with filtering and sorting |
 | `/api/v1/pm/opinion/orderbooks` | GET | Historical orderbook snapshots for Opinion |
+| `/api/v1/pm/predictfun/markets` | GET | List Predict.Fun markets with filtering and sorting |
 | `/api/v1/pm/predictfun/orderbooks` | GET | Historical orderbook snapshots for Predict.Fun |
 
 ---

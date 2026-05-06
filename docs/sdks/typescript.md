@@ -276,14 +276,15 @@ Structured query for prediction market POST endpoints. Reserved for future POST 
 
 | Platform | Available Data |
 |----------|---------------|
-| Polymarket | Markets, Events, Trades, Candlesticks, Orderbooks, Prices, Volume, Activity, Positions, Leaderboards, Wallet Analytics, Smart Money |
+| Polymarket | Markets, Events, Trades, Candlesticks (market + token), Orderbooks, Prices, Volume, Open Interest, Activity, Positions, Leaderboards, Cohort Stats, Top Holders, Wallet Analytics, Smart Money, Wallet Identity & Clustering |
+| UMA Oracle | Resolution questions, status, event timeline (Polymarket markets) |
 | Kalshi | Markets, Trades, Orderbooks |
 | dFlow | Trades, Wallet Positions, Wallet P&L |
-| Binance | Candles, Ticks |
-| Matching | Cross-platform market matching |
-| Limitless | Orderbooks |
-| Opinion | Orderbooks |
-| Predict.Fun | Orderbooks |
+| Binance Futures | Candles, Ticks |
+| Limitless | Markets, Orderbooks |
+| Opinion | Markets, Orderbooks |
+| Predict.Fun | Markets, Orderbooks |
+| Matching | Cross-platform market matching, exact-match pairs, unified search |
 
 ### Solana Usage
 

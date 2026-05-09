@@ -157,7 +157,6 @@ Apache 2.0 licensed open-weight models, hosted free by NVIDIA.
 | `openai/gpt-image-2` | ChatGPT Images 2.0 | $0.06-0.12/image |
 | `google/nano-banana` | Nano Banana | $0.05/image |
 | `google/nano-banana-pro` | Nano Banana Pro | $0.10-0.15/image |
-| `black-forest/flux-1.1-pro` | Flux 1.1 Pro | $0.04/image |
 
 ### Video Generation
 
